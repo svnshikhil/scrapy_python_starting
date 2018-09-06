@@ -1,0 +1,15 @@
+__pycache__/
+cache/
+local/
+test.py
+ui/node_modules/
+ui/dist/
+.idea/
+.vscode/
+*.log
+clarity_crawler_env/
+Downloads/
+ui/package-lock.json
+venv/
+test
+
