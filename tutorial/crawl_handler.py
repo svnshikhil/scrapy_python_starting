@@ -40,6 +40,31 @@ def stopCrawl(crawl_request):
     try:
         crawler.engine.stop()
         runner.stop()
+
+    except Exception as e:
+        print('Error',e)
+
+def pauseCrawl(crawl_request):
+    global crawler
+    global runner
+    print('HEY',crawler.engine)
+    # os._exit(1)
+    try:
+        crawler.engine.pause()
+        runner.pause()
+
+    except Exception as e:
+        print('Error',e)
+
+def resumeCrawl(crawl_request):
+    global crawler
+    global runner
+    print('HEY',crawler.engine)
+    # os._exit(1)
+    try:
+        crawler.engine.unpause()
+        runner.unpause()
+
     except Exception as e:
         print('Error',e)
 
@@ -57,4 +82,5 @@ def initCrawl(crawl_request):
     if list(runner.crawlers):
         crawler = list(runner.crawlers)[0]
     threading._start_new_thread(reactor.run,((),))
+    d.addBoth(lambda _: reactor.stop())
     # reactor.run()

@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 EXTENSIONS = {
     'scrapy_kafka_export.KafkaItemExporterExtension': 1,
 }
-KAFKA_EXPORT_ENABLED = True
+KAFKA_EXPORT_ENABLED = False
 KAFKA_BROKERS = [
     'localhost:9092'
 ]
