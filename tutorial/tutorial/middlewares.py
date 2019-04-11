@@ -120,12 +120,10 @@ class TutorialRedirectMiddleware(BaseRedirectMiddleware):
 
         allowed_status = (301, 302, 303, 307, 308)
         if 'Location' not in response.headers or response.status not in allowed_status:
-            print('CLOSING . . . .')
             return response
 
         location = safe_url_string(response.headers['location'])
         redirected_url = urljoin(request.url, location)
-        print('LOOOOOOOOOO',redirected_url)
         self.reason.append(dict(url=redirected_url,code=response.status))
         request.meta['reason']= self.reason
         if response.status in (301, 307, 308) or request.method == 'HEAD':

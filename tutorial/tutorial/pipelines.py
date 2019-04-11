@@ -16,6 +16,6 @@
 
 class TutorialPipeline(object):
     def process_item(self, item, spider):
-        print('RESP=====>',item)
+        # print('RESP=====>',item)
         # es.index(index='scrapy_test', doc_type='doc', body=dict(item))
         return item
