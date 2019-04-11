@@ -31,7 +31,8 @@ class LinkSpider(scrapy.Spider):
         for link in links:
             # print(link.url)
             yield scrapy.Request(url=link.url, callback=self.parse)
-        print('RESPONSE | URL : %s | META : %s ' % (str(response.url), str(response.meta['download_latency'])))
+        print('RESPONSE | URL : %s | STATUS : %s | META : %s ' % (
+        str(response.url), str(response.status), str(response.meta['download_latency'])))
 
         yield {
             'url': response.url,
