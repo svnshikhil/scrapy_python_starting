@@ -27,12 +27,13 @@ class LinkSpider(scrapy.Spider):
         super(LinkSpider, self).__init__()
 
     def parse(self, response):
-        links = self.link_extractor.extract_links(response)
-        for link in links:
-            # print(link.url)
-            yield scrapy.Request(url=link.url, callback=self.parse)
         print('RESPONSE | URL : %s | STATUS : %s | META : %s ' % (
         str(response.url), str(response.status), str(response.meta['download_latency'])))
+        links = self.link_extractor.extract_links(response)
+        # if self.crawl_request.get('dont_crawl_links_found',True):
+            # for link in links:
+            #     # print(link.url)
+            #     yield scrapy.Request(url=link.url, callback=self.parse)
 
         yield {
             'url': response.url,
