@@ -14,7 +14,7 @@ class LinkSpider(scrapy.Spider):
     allow_domains = None
     deny_domains = None
 
-    link_extractor = LxmlLinkExtractor(allow=(), deny=(), allow_domains=(allow_domains), deny_domains=(deny_domains),
+    link_extractor = LxmlLinkExtractor(allow=(), deny=(), allow_domains=(["grainger.com"]), deny_domains=(deny_domains),
                                        deny_extensions=None, restrict_xpaths=(), restrict_css=(), tags=('a', 'area'),
                                        attrs=('href',), canonicalize=False, unique=True, process_value=None, strip=True)
 
@@ -22,7 +22,7 @@ class LinkSpider(scrapy.Spider):
         self.crawl_request = kwargs.get('crawl_request')
         print("INSIDE", self.crawl_request.get('request_url'))
         self.start_urls = self.crawl_request.get('request_url')
-        self.allow_domains = self.crawl_request.get('allow_domains')
+        # self.allow_domains = self.crawl_request.get('allow_domains')
         self.deny_domains = self.crawl_request.get('deny_domains')
         super(LinkSpider, self).__init__()
 
