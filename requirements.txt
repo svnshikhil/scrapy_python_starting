@@ -57,7 +57,7 @@ urllib3==1.23
 vboxapi==1.0
 virtualenv==16.0.0
 w3lib==1.19.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 youtube-dl==2018.8.4
 yum-metadata-parser==1.1.4
 zim==0.68rc1
